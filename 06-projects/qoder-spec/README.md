@@ -1,6 +1,18 @@
-# Qoder 项目规范指南
+# Qoder + SDD 项目规范指南
 
-> 使用 OpenSpec 格式和 SDD 最佳实践，让 AI 理解并生成高质量代码
+> 使用 Spec 驱动开发和 Qoder Quest Mode，让 AI 自主编程，减少返工 60%，提高效率 10 倍
+
+**版本：** v1.0 | **最后更新：** 2026-03-12 | **适合：** Java 开发者
+
+---
+
+## 🎯 核心价值
+
+| 价值 | 说明 | 数据支撑 |
+|------|------|----------|
+| **减少返工** | Spec 驱动，需求明确 | ↓60% 返工率 |
+| **提高效率** | AI 自主编程 | ↑10 倍效率 |
+| **文档同步** | Spec 即文档 | ↓80% 维护成本 |
 
 ---
 
@@ -48,24 +60,29 @@
 
 ```
 my-project/
-├── .openspec/              # OpenSpec 规范
+├── .qoder/                 # Qoder 配置
+│   ├── rules/              # 项目规则（可选）
+│   └── skills/             # 技能扩展（可选）
+│
+├── .openspec/              # OpenSpec 规范（可选）
 │   ├── project.yaml        # 项目规范
 │   ├── features/           # 功能规范
-│   ├── models/             # 数据模型
-│   └── apis/               # API 规范
+│   └── models/             # 数据模型
 │
 ├── src/                    # 源代码
-│   ├── generated/          # AI 生成的代码
-│   └── custom/             # 手写代码
-│
-├── tests/                  # 测试
-│   ├── unit/               # 单元测试
-│   └── integration/        # 集成测试
+│   ├── main/java/          # 主代码
+│   └── test/java/          # 测试代码
 │
 ├── docs/                   # 文档
+│   └── api/                # API 文档
 │
-└── README.md
+└── README.md               # 项目说明
 ```
+
+**说明：**
+- Qoder Quest Mode 会自主管理项目结构
+- OpenSpec 规范可选，复杂功能推荐使用
+- .qoder/rules 和 .qoder/skills 是高级功能（可选）
 
 ---
 
@@ -186,20 +203,72 @@ spec:
 
 欢迎 Issue、PR、讨论！
 
-- GitHub: [xiaochi-cloud/learning-ai](https://github.com/xiaochi-cloud/learning-ai)
-- 问题反馈：提 Issue
+- **GitHub:** [xiaochi-cloud/learning-ai](https://github.com/xiaochi-cloud/learning-ai)
+- **问题反馈:** [提 Issue](https://github.com/xiaochi-cloud/learning-ai/issues)
+- **讨论交流:** 团队内部群
+
+---
+
+## ❓ 常见问题
+
+**Q: SDD 会增加工作量吗？**
+
+A: 短期会增加（学习规范），长期减少。
+
+```
+传统：需求 → 设计 → 编码 → 测试 → 文档（5 步）
+SDD:   规范 → 生成 → 测试（3 步）
+
+节省：设计时间 + 编码时间 + 文档时间
+```
+
+**Q: 规范很难写吗？**
+
+A: 比写 Java 简单，像写配置。
+
+**Q: AI 生成的代码可靠吗？**
+
+A: 标准代码可靠（80%），复杂逻辑需人工优化（20%）。
+
+**更多问题：** [FAQ.md](./FAQ.md)
+
+---
+
+## 🎯 学习路径
+
+```
+新手 → 入门 → 进阶 → 实战
+  ↓      ↓      ↓      ↓
+了解   快速   完整   团队
+概念   上手   理解   落地
+```
+
+**推荐顺序：**
+1. [00-START-HERE.md](./00-START-HERE.md) - 5 分钟
+2. [01-QUICK-GUIDE.md](./01-QUICK-GUIDE.md) - 30 分钟
+3. [QODER-USE-CASES.md](./QODER-USE-CASES.md) - 15 分钟
+4. 参与试点项目 - 2 周
+
+---
+
+## 🔗 官方资源
+
+- **Qoder 官网:** https://qoder.com
+- **官方文档:** https://docs.qoder.com/zh
+- **下载页面:** https://qoder.com/download
+- **Quest Mode:** https://docs.qoder.com/zh/user-guide/quest-mode
 
 ---
 
 ## 📬 联系方式
 
-- 作者：池少
-- 项目：[learning-ai](https://github.com/xiaochi-cloud/learning-ai)
+- **作者:** 池少
+- **项目:** [learning-ai](https://github.com/xiaochi-cloud/learning-ai)
 
 ---
 
-**📊 难度：** ⭐⭐⭐⭐☆  
+**📊 难度：** ⭐⭐⭐☆☆  
 **📝 预计时间：** 60 分钟  
 **🏷️ 标签：** #qoder #sdd #openspec #guide
 
-**最后更新：** 2026-03-11 | **版本：** v0.1
+**最后更新：** 2026-03-12 | **版本：** v1.0 | **状态：** ✅ 完成

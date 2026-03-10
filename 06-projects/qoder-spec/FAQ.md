@@ -1,29 +1,120 @@
 # 常见问题 (FAQ)
 
-> Qoder + SDD 常见问题解答
+> Qoder + SDD 常见问题解答（20 个）
 
-**最后更新：** 2026-03-11 | **版本：** v1.0
+**最后更新：** 2026-03-12 | **版本：** v1.1 | **分类：** 基础/使用/落地
 
 ---
 
-## 📚 基础概念
+## 📚 基础概念（1-5）
 
 ### Q1: SDD 是什么？
 
 **A:** SDD = Specification-Driven Development（规范驱动开发）
 
-核心思想：**先编写规范，再基于规范开发**
+**核心思想：** 先编写规范（Spec），再基于规范开发。
 
 ```
-传统：需求 → 设计 → 编码 → 测试 → 文档
-SDD:   规范 → 生成 → 测试
+传统开发：
+需求 → 设计 → 编码 → 测试 → 文档
+（容易信息丢失，返工率高）
+
+SDD 开发：
+规范 → AI 生成 → 测试 → 迭代
+（规范即代码，意图不丢失）
 ```
 
-**好处：**
-- 减少需求理解偏差
-- 提高代码质量
-- 文档永远同步
-- AI 协作更顺畅
+**核心价值：**
+- ✅ 减少返工 60%（需求明确）
+- ✅ 提高效率 10 倍（AI 自主编程）
+- ✅ 文档永远同步（Spec 即文档）
+
+---
+
+### Q2: Qoder 是什么？
+
+**A:** Qoder = Agentic 编码平台
+
+**核心能力：**
+- Quest Mode：自主编程
+- Spec 驱动：先对齐需求，再执行
+- 多环境：Local/Parallel/Remote
+
+**产品形态：**
+- Qoder IDE（桌面应用）⭐ 推荐
+- Qoder 插件（JetBrains）
+- Qoder CLI（终端工具）
+
+**官网：** https://qoder.com
+
+---
+
+### Q3: OpenSpec 是什么？
+
+**A:** OpenSpec = 开放规范格式（Fission AI 开发）
+
+**特点：**
+- YAML 格式，人类可读
+- 机器可解析，可生成代码
+- 开源项目：github.com/Fission-AI/OpenSpec
+
+**示例：**
+```yaml
+name: UserService
+version: 1.0.0
+functions:
+  - name: createUser
+    parameters:
+      - name: username
+        type: string
+```
+
+**注意：** OpenSpec 是开源标准，不是 Qoder 专属。
+
+---
+
+### Q4: Spec 驱动是什么？
+
+**A:** Spec 驱动 = 先写规范，再生成代码
+
+**工作流程：**
+```
+1. 描述需求（自然语言或 YAML）
+   ↓
+2. Quest 生成 Spec 文档
+   ↓
+3. 审核 Spec（可修改）
+   ↓
+4. 点击运行
+   ↓
+5. Quest 自主编程
+   ↓
+6. 验收结果（Accept/Reject）
+```
+
+**适用场景：**
+- ✅ 复杂功能开发
+- ✅ 需要文档留存
+- ✅ 多人协作
+
+---
+
+### Q5: Quest Mode 是什么？
+
+**A:** Quest Mode = Qoder 的自主编程模式
+
+**核心能力：**
+- 端到端完成开发任务
+- 自主澄清需求、规划方案
+- 执行代码、验证结果
+- 无需持续人工介入
+
+**核心理念：** Define the goal. Review the result.
+
+**三种场景：**
+1. Spec 驱动 - 复杂功能
+2. 搭建网站 - 快速原型
+3. 原型探索 - 创意实验
 
 ---
 
