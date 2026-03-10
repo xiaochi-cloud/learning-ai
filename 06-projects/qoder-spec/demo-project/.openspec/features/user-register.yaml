@@ -8,14 +8,14 @@ meta:
   priority: high
 
 spec:
-  features:
+  functions:
     - id: F001-01
       name: 创建用户账号
       description: |
         新用户通过邮箱和密码注册账号
         注册成功后自动登录
       
-      inputs:
+      parameters:
         - name: username
           type: string
           min_length: 3
@@ -37,7 +37,7 @@ spec:
           required: true
           description: 密码（必须包含大小写字母和数字）
       
-      outputs:
+      returns:
         - name: user_id
           type: string
           format: uuid
@@ -48,6 +48,20 @@ spec:
         - name: created_at
           type: datetime
           description: 创建时间
+      
+      errors:
+        - code: USER_EXISTS
+          description: 用户已存在
+          http_status: 409
+        - code: EMAIL_EXISTS
+          description: 邮箱已存在
+          http_status: 409
+        - code: WEAK_PASSWORD
+          description: 密码强度不足
+          http_status: 400
+        - code: INVALID_USERNAME
+          description: 用户名格式无效
+          http_status: 400
       
       constraints:
         - 用户名不能重复

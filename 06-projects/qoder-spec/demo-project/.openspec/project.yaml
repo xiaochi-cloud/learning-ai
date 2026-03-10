@@ -11,7 +11,7 @@ meta:
 
 spec:
   # 功能列表
-  features:
+  functions:
     - id: F001
       name: 用户注册
       description: 新用户注册账号

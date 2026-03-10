@@ -6,65 +6,41 @@
 
 ## 🚀 快速开始
 
-### 1. 安装工具
+### 1. 下载 Qoder IDE
 
-```bash
-# 安装 OpenSpec 验证工具
-pip install openspec-validator
+访问官网下载安装：
+- **官网：** https://qoder.com/download
+- **支持平台：** Windows / macOS / Linux
 
-# 或使用 Qoder CLI
-pip install qoder-cli
-```
+### 2. 登录账号
 
-### 2. 创建项目
+- 打开 Qoder IDE
+- 点击右上角用户图标
+- 使用 Google 或 GitHub 账号登录
 
-```bash
-# 创建项目目录
-mkdir my-project
-cd my-project
+### 3. 打开项目
 
-# 初始化 OpenSpec 结构
-qoder init
+- 打开本地项目
+- 或克隆 GitHub 项目
 
-# 生成目录结构
-# .openspec/
-# ├── project.yaml
-# ├── features/
-# ├── models/
-# └── apis/
-```
+### 4. 使用 Quest Mode
 
-### 3. 编写规范
+1. 点击左上角 **Editor/Quest** 切换到 Quest Mode
+2. 点击 **New Quest** 创建新任务
+3. 选择场景：
+   - **Spec 驱动** — 复杂功能开发
+   - **搭建网站** — 0-1 创建网站
+   - **原型探索** — 快速验证想法
+4. 描述任务（自然语言或 OpenSpec）
+5. Quest 生成 Spec（如选择 Spec 驱动）
+6. 审核 Spec 并点击运行
+7. 验收结果（Accept/Reject）
 
-编辑 `.openspec/project.yaml`：
+### 5. 学习资源
 
-```yaml
-meta:
-  name: my-project
-  version: 1.0.0
-  description: 我的项目
-
-spec:
-  features:
-    - id: F001
-      name: 我的功能
-      description: 功能描述
-      inputs: [...]
-      outputs: [...]
-```
-
-### 4. 生成代码
-
-```bash
-# 验证规范
-qoder validate
-
-# 生成代码
-qoder generate
-
-# 运行测试
-qoder test
-```
+- **快速开始：** [00-START-HERE.md](./00-START-HERE.md)
+- **完整指南：** [01-QUICK-GUIDE.md](./01-QUICK-GUIDE.md)
+- **官方文档：** https://docs.qoder.com/zh
 
 ---
 

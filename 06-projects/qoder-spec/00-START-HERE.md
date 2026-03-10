@@ -143,24 +143,72 @@ Qoder:   根据规范生成代码（更准确）
 
 ## 🚀 5 分钟快速体验
 
-### 步骤 1：安装（1 分钟）
+### 步骤 1：下载 Qoder IDE（1 分钟）
 
-```bash
-pip install qoder-cli
-qoder --version  # 验证安装
+**访问官网：** https://qoder.com/download
+
+**选择你的平台：**
+- 🍎 macOS（Intel / Apple Silicon）
+- 🪟 Windows（10 / 11）
+- 🐧 Linux（Ubuntu / Debian）
+
+**下载安装后启动 Qoder IDE**
+
+---
+
+### 步骤 2：创建新项目（1 分钟）
+
+**在 Qoder IDE 中：**
+```
+File → New Project → 选择 Java/Spring Boot 模板
 ```
 
-### 步骤 2：初始化（1 分钟）
-
-```bash
-mkdir my-first-sdd
-cd my-first-sdd
-qoder init --lang java
+**或打开现有项目：**
+```
+File → Open Folder → 选择你的项目目录
 ```
 
-### 步骤 3：编写规范（2 分钟）
+---
 
-编辑 `.openspec/features/hello.yaml`：
+### 步骤 3：切换到 Quest Mode（30 秒）
+
+**左上角切换：**
+```
+[Editor ▼] → 选择 [Quest]
+```
+
+**或快捷键：**
+```
+macOS: Cmd + Shift + Q
+Windows: Ctrl + Shift + Q
+```
+
+---
+
+### 步骤 4：创建 Quest 任务（2 分钟）
+
+**点击：** `New Quest`
+
+**描述任务（自然语言示例）：**
+
+```
+创建一个 Hello World 功能：
+
+功能需求：
+- 接收一个 name 参数
+- 返回 "Hello, {name}!" 问候语
+- 使用 Java 编写
+
+验收标准：
+- ✅ 输入 "World" 返回 "Hello, World!"
+- ✅ 输入 null 返回错误
+```
+
+---
+
+### 步骤 5：审核 Spec 并运行（1 分钟）
+
+**Quest 会生成 Spec：**
 
 ```yaml
 meta:
@@ -168,25 +216,32 @@ meta:
   version: 1.0.0
 
 spec:
-  features:
-    - name: 打招呼
-      inputs:
+  functions:
+    - name: greet
+      description: 打招呼
+      parameters:
         - name: name
           type: string
           required: true
-      outputs:
-        - name: greeting
-          type: string
+      returns:
+        type: string
 ```
 
-### 步骤 4：生成代码（1 分钟）
+**审核清单：**
+- [ ] 参数类型正确
+- [ ] 返回值类型正确
 
-```bash
-qoder generate --feature hello --lang java
-```
+**操作：**
+- ✅ 满意 → 点击 `运行`
+- ✏️ 需要修改 → 直接编辑 Spec
 
-生成的代码：
+---
 
+### 步骤 6：验收结果
+
+**Quest 执行完成后：**
+
+**查看生成的代码：**
 ```java
 public class HelloService {
     /**
@@ -200,11 +255,10 @@ public class HelloService {
 }
 ```
 
-### 步骤 5：运行验证
-
-```bash
-qoder test
-# ✅ 所有测试通过
+**验收操作：**
+```
+[Accept] — 应用所有修改
+[Reject] — 放弃修改
 ```
 
 **恭喜！你已经完成了第一个 SDD 项目！**

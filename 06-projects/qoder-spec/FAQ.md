@@ -50,13 +50,21 @@ features:
 
 ### Q3: Qoder 是什么？
 
-**A:** Qoder 是一个 AI 编程助手
+**A:** Qoder 是 **Agentic 编码平台**，不是传统 AI 助手
 
-**能力：**
+**核心能力：**
 - 理解 OpenSpec 规范
+- 通过 Quest Mode 端到端完成功能
 - 生成高质量代码
 - 自动添加注释
 - 生成测试用例
+
+**与传统 AI 助手的区别：**
+| 传统 AI 助手 | Qoder Quest Mode |
+|-------------|-----------------|
+| 你问它答 | 描述目标，端到端完成 |
+| 生成片段代码 | 自主完成整个功能 |
+| 需要人工整合 | 直接交付可运行代码 |
 
 ---
 
@@ -64,20 +72,32 @@ features:
 
 ### Q4: 如何开始第一个 SDD 项目？
 
-**A:** 只需 4 步（5 分钟）
+**A:** 只需 5 步（5 分钟）
 
-```bash
-# 1. 安装
-pip install qoder-cli
+**步骤 1：下载 Qoder IDE**
+```
+访问：https://qoder.com/download
+选择你的平台下载安装
+```
 
-# 2. 初始化
-qoder init --lang java
+**步骤 2：创建/打开项目**
+```
+File → New Project 或 File → Open Folder
+```
 
-# 3. 编写规范
-# 编辑 .openspec/features/hello.yaml
+**步骤 3：切换到 Quest Mode**
+```
+左上角 [Editor ▼] → 选择 [Quest]
+```
 
-# 4. 生成代码
-qoder generate --all
+**步骤 4：描述任务**
+```
+点击 New Quest，用自然语言描述功能
+```
+
+**步骤 5：审核 Spec 并运行**
+```
+Quest 生成 Spec → 审核 → 点击运行 → 验收结果
 ```
 
 详细教程：[00-START-HERE.md](./00-START-HERE.md)
@@ -161,25 +181,25 @@ qoder generate --all
 
 ## 🛠️ 工具使用
 
-### Q9: Qoder CLI 安装失败怎么办？
+### Q9: Qoder IDE 启动失败怎么办？
 
 **A:** 检查以下几点：
 
-```bash
-# 1. 检查 Python 版本
-python --version  # 需要 3.8+
-
-# 2. 升级 pip
-pip install --upgrade pip
-
-# 3. 重新安装
-pip install qoder-cli
-
-# 4. 验证安装
-qoder --version
 ```
+1. 检查系统要求
+   - macOS: 10.15+
+   - Windows: 10/11
+   - Linux: Ubuntu 18.04+ / Debian 10+
 
-如仍有问题，提 Issue：https://github.com/qoder-ai/qoder/issues
+2. 重新下载安装
+   访问：https://qoder.com/download
+
+3. 检查日志
+   查看应用日志文件定位问题
+
+4. 联系支持
+   如仍有问题，提 Issue：https://github.com/qoder-ai/qoder/issues
+```
 
 ---
 
@@ -188,14 +208,14 @@ qoder --version
 **A:** 按以下步骤：
 
 ```
-1. 检查规范是否有问题
-   qoder validate
+1. 检查 Spec 是否有问题
+   在 Quest Mode 中查看 Spec 编辑器
 
 2. 查看错误日志
-   qoder generate --verbose
+   查看 Quest 执行日志
 
-3. 修改规范后重新生成
-   qoder generate --force
+3. 修改 Spec 后重新运行
+   直接编辑 Spec，点击重新运行
 
 4. 如仍有问题，提 Issue
 ```
@@ -300,12 +320,13 @@ ROI = (收益 - 成本) / 成本 × 100%
 
 ```
 第 1 天（30 分钟）：
+  - 下载 Qoder IDE：https://qoder.com/download
   - 阅读 00-START-HERE.md
   - 完成快速体验
 
 第 1 周（2 小时）：
   - 阅读 01-QUICK-GUIDE.md
-  - 完成第一个项目
+  - 用 Quest Mode 完成第一个功能
 
 第 2 周（4 小时）：
   - 阅读 guide-for-java-team.md

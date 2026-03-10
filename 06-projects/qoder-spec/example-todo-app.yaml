@@ -12,7 +12,7 @@ meta:
 # ==================== 功能规范 ====================
 
 spec:
-  features:
+  functions:
     # 功能 1: 创建待办
     - id: F001
       name: 创建待办事项
@@ -21,7 +21,7 @@ spec:
         支持设置标题、描述、截止日期、优先级
       priority: high
       
-      inputs:
+      parameters:
         - name: title
           type: string
           min_length: 1
@@ -48,7 +48,7 @@ spec:
           required: false
           description: 优先级
       
-      outputs:
+      returns:
         - name: todo_id
           type: string
           format: uuid
@@ -57,6 +57,17 @@ spec:
         - name: created_at
           type: datetime
           description: 创建时间
+      
+      errors:
+        - code: INVALID_TITLE
+          description: 标题无效
+          http_status: 400
+        - code: INVALID_DATE
+          description: 截止日期无效
+          http_status: 400
+        - code: TITLE_TOO_LONG
+          description: 标题超长
+          http_status: 400
       
       constraints:
         - 标题不能为空或空白
@@ -80,17 +91,25 @@ spec:
       description: 标记待办事项为已完成
       priority: high
       
-      inputs:
+      parameters:
         - name: todo_id
           type: string
           format: uuid
           required: true
           description: 待办 ID
       
-      outputs:
+      returns:
         - name: success
           type: boolean
           description: 是否成功
+      
+      errors:
+        - code: ALREADY_COMPLETED
+          description: 待办已完成
+          http_status: 400
+        - code: NOT_FOUND
+          description: 待办不存在
+          http_status: 404
       
       constraints:
         - 只能完成状态为 pending 的待办
@@ -111,15 +130,23 @@ spec:
       description: 删除待办事项（软删除）
       priority: medium
       
-      inputs:
+      parameters:
         - name: todo_id
           type: string
           format: uuid
           required: true
       
-      outputs:
+      returns:
         - name: success
           type: boolean
+      
+      errors:
+        - code: NOT_FOUND
+          description: 待办不存在
+          http_status: 404
+        - code: ALREADY_DELETED
+          description: 待办已删除
+          http_status: 400
       
       constraints:
         - 只能删除未删除的待办
@@ -139,7 +166,7 @@ spec:
       description: 按条件查询待办事项
       priority: high
       
-      inputs:
+      parameters:
         - name: status
           type: enum
           values: [all, pending, completed, cancelled]
@@ -170,7 +197,7 @@ spec:
           max: 100
           required: false
       
-      outputs:
+      returns:
         - name: todos
           type: array
           items: Todo
@@ -186,6 +213,14 @@ spec:
         - name: page_size
           type: integer
           description: 每页数量
+      
+      errors:
+        - code: INVALID_PAGE
+          description: 页码无效
+          http_status: 400
+        - code: INVALID_PAGE_SIZE
+          description: 每页数量无效
+          http_status: 400
       
       acceptance_criteria:
         - 能按条件筛选
